@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="api" extends="Task">
+    <interface>
+        <!-- Field to set the API issue a request to the handler -->
+        <field id="request" type="assocarray"/>
+        <field id="response" type="Node"/>
+        <field id="requestnumber" type="integer"/>
+        <field id="errorFound" type="boolean" alwaysNotify="true"/>
+        <field id="getMusicVideoData" type="assocarray"/>
+    </interface>
+    <children>
+    <!-- Set the Timer node to process the API request and get the response -->
+        <timer
+            id="requestTimer"
+            repeat="false"
+            duration="120" />
+    </children>
+    <!-- BrightScript Portion -->
+    <script type="text/brightscript" uri="pkg:/components/API/api.brs"/>
+    <!-- End of BrightScript Portion -->
+</component>

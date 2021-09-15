@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="HomeScreen" extends="Group" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+
+    <!-- Interface fields -->
+	<interface>
+		<field id="rowItemSelected" type="roArray" alias="homeScreenGridRowList.rowItemSelected" onChange="onRowListItemSelected"/>
+		<field id="state" type="string" alwaysNotify="true" onChange="onState" alias="video.state"/>
+	</interface>
+	
+	<!-- BrightScript Portion -->
+    <script type="text/brightscript" uri="pkg:/components/Screens/HomeScreen/HomeScreen.brs" />
+
+	<children>
+        <!-- Set rowlist to show grid on home screen -->
+		<RowList
+            id="homeScreenGridRowList"
+            drawFocusFeedback="true"
+            translation="[50, 200]"
+            itemSize="[1820, 390]"
+            rowHeights="[390]"
+            numRows="2"
+            itemSpacing="[0,50]"
+            focusXOffset="[0]"
+            itemComponentName="GridListItem"
+            rowFocusAnimationStyle="floatingFocus"
+            rowItemSize="[[440,246]]"
+            rowItemSpacing="[[20, 0]]"
+            showRowLabel="[true]"
+			rowLabelColor="#000000"
+            showRowCounter="false"
+            rowLabelOffset="[[0,10]]" >
+        </RowList>
+
+		<!-- video to play the content after selcting the grid item -->
+        <Video
+			id="video"
+			visible="false"
+            width="1920"
+            height="1080"
+			translation="[0,0]"/>
+
+	</children>
+</component>
